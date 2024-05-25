@@ -10,8 +10,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname,"public")));
 app.set('view engine', 'ejs');
 
-app.get('/',(req,res)=>{
-    res.send("hey");
-})
+const ownersRouter = require("./routes/ownersRouter");
+const productsRounter = require("./routes/productsRouter");
+const usersRouter = require("./routes/usersRouter");
+
+app.use('/owners',ownersRouter)
+app.use('/products',productsRounter)
+app.use('/users',usersRouter)
 
 app.listen(process.env.PORT||3000)
