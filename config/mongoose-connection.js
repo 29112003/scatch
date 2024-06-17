@@ -1,9 +1,11 @@
 const mongoose = require("mongoose");
+const config = require("config");
+const debug = require('debug')("development:mongoose")
 
 mongoose
-.connect("mongodb://localhost:27017/bagsellingWebApp")
+.connect(`${config.get("MONGODB_URI")}/bagsellingWebApp`)
 .then(function(){
-    console.log("connected");
+    debug("connected");
 })
 .catch(function(err){
     console.log(err);
@@ -12,3 +14,4 @@ mongoose
 const db = mongoose.connection;
 
 module.exports = db;
+// mongodb://localhost:27017/bagsellingWebApp

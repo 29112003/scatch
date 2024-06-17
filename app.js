@@ -3,6 +3,7 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const path = require('path');
 const db = require("./config/mongoose-connection");
+const debug = require('debug')("development:app")
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
@@ -17,5 +18,8 @@ const usersRouter = require("./routes/usersRouter");
 app.use('/owners',ownersRouter)
 app.use('/products',productsRounter)
 app.use('/users',usersRouter)
+
+
+
 
 app.listen(process.env.PORT||3000)
