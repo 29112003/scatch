@@ -25,7 +25,5 @@ router.get('/',(req,res)=>{
     res.send("from ownerRounter");
 })
 
-debug(process.env.NODE_ENV); //if it is undefined means ye set-up nahi hai
-
 
 module.exports = router;
